@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '/widget/circular_progress.dart';
+import '../../utils/circular_progress.dart';
 
 class LoadableButton extends StatelessWidget {
   /// Loading animasyonunun çalışabilmesi için, parametreye geçirilen Function'ın `async` ile işaretlenmiş olması ve içerisindeki tüm Future metodların
