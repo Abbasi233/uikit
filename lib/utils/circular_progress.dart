@@ -8,17 +8,17 @@ class CircularProgress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (Platform.isAndroid) {
+    if (Platform.isIOS) {
       return Center(
-        child: CircularProgressIndicator(color: color),
+        child: CupertinoActivityIndicator(
+          color: color,
+          radius: 15,
+        ),
       );
     }
 
     return Center(
-      child: CupertinoActivityIndicator(
-        color: color,
-        radius: 15,
-      ),
+      child: CircularProgressIndicator(color: color),
     );
   }
 }
