@@ -9,14 +9,16 @@ class LoadableButton extends StatelessWidget {
     required this.title,
     required this.onTap,
     this.color = Colors.blue,
-    this.heigth = 50,
+    this.circularColor,
+    this.height = 50,
     this.borderRadius,
     super.key,
   });
   final String title;
 
   final Color? color;
-  final double? heigth;
+  final Color? circularColor;
+  final double? height;
   final BorderRadiusGeometry? borderRadius;
 
   final Future<void> Function() onTap;
@@ -26,7 +28,7 @@ class LoadableButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: heigth,
+      height: height,
       width: MediaQuery.of(context).size.width,
       child: AnimatedBuilder(
         animation: _loading,
@@ -53,7 +55,7 @@ class LoadableButton extends StatelessWidget {
                     ),
                   ),
                 )
-              : const CircularProgress(),
+              : CircularProgress(color: circularColor),
         ),
       ),
     );
