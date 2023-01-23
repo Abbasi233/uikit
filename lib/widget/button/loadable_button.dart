@@ -9,7 +9,7 @@ class LoadableButton extends StatelessWidget {
     required this.title,
     required this.onTap,
     this.color = Colors.blue,
-    this.circularColor,
+    this.circularColor = Colors.white,
     this.height = 50,
     this.borderRadius,
     super.key,
