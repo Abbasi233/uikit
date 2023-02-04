@@ -10,6 +10,7 @@ class ObscurableTextField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon = Icons.remove_red_eye,
     this.obscuringCharacter = '•',
+    this.decoration,
     this.activeColor = Colors.blue,
     this.passiveColor = Colors.grey,
     this.keyboardType = TextInputType.emailAddress,
@@ -24,6 +25,7 @@ class ObscurableTextField extends StatelessWidget {
   final TextStyle? textStyle;
   final TextStyle? labelStyle;
   final String obscuringCharacter;
+  final InputDecoration? decoration;
   final Widget? prefixIcon;
   final IconData? suffixIcon;
   final Color activeColor;
@@ -37,6 +39,17 @@ class ObscurableTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    InputDecoration? userDecoration;
+    if (decoration != null) {
+      userDecoration = decoration!.copyWith(
+        suffixIcon: IconButton(
+          icon: Icon(suffixIcon),
+          color: _showPassword.value ? activeColor : passiveColor,
+          onPressed: () => _showPassword.value = !_showPassword.value,
+        ),
+      );
+    }
+
     return AnimatedBuilder(
       animation: _showPassword,
       builder: (context, _) {
@@ -47,19 +60,20 @@ class ObscurableTextField extends StatelessWidget {
           obscuringCharacter: obscuringCharacter,
           keyboardType: keyboardType,
           style: textStyle,
-          decoration: InputDecoration(
-            border: border,
-            enabledBorder: enabledBorder,
-            labelText: label,
-            labelStyle: labelStyle,
-            hintText: hintText,
-            prefixIcon: prefixIcon,
-            suffixIcon: IconButton(
-              icon: Icon(suffixIcon),
-              color: _showPassword.value ? activeColor : passiveColor,
-              onPressed: () => _showPassword.value = !_showPassword.value,
-            ),
-          ),
+          decoration: userDecoration ??
+              InputDecoration(
+                border: border,
+                enabledBorder: enabledBorder,
+                labelText: label,
+                labelStyle: labelStyle,
+                hintText: hintText,
+                prefixIcon: prefixIcon,
+                suffixIcon: IconButton(
+                  icon: Icon(suffixIcon),
+                  color: _showPassword.value ? activeColor : passiveColor,
+                  onPressed: () => _showPassword.value = !_showPassword.value,
+                ),
+              ),
         );
       },
     );
