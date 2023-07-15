@@ -13,13 +13,13 @@ void successSnackbar(String content) {
   );
 }
 
-void failureSnackbar(String content, {bool runtimeEx = false}) {
+void failureSnackbar(String content, {Duration duration = const Duration(seconds: 3)}) {
   Get.snackbar(
     "İşlem Başarısız",
     content,
     backgroundColor: Colors.red[700],
     colorText: Colors.white,
-    duration: Duration(seconds: runtimeEx ? 20 : 3),
+    duration: duration,
     animationDuration: const Duration(milliseconds: 300),
     snackPosition: SnackPosition.TOP,
     margin: const EdgeInsets.all(5),

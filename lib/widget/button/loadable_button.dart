@@ -38,9 +38,11 @@ class LoadableButton extends StatelessWidget {
           child: !_loading.value
               ? InkWell(
                   onTap: () async {
-                    _loading.value = true;
-                    await onTap();
-                    _loading.value = false;
+                    if (_loading.value == false) {
+                      _loading.value = true;
+                      await onTap();
+                      _loading.value = false;
+                    }
                   },
                   borderRadius: BorderRadius.circular(20),
                   child: Center(
