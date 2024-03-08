@@ -39,20 +39,20 @@ class ObscurableTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    InputDecoration? userDecoration;
-    if (decoration != null) {
-      userDecoration = decoration!.copyWith(
-        suffixIcon: IconButton(
-          icon: Icon(suffixIcon),
-          color: _showPassword.value ? activeColor : passiveColor,
-          onPressed: () => _showPassword.value = !_showPassword.value,
-        ),
-      );
-    }
-
     return AnimatedBuilder(
       animation: _showPassword,
       builder: (context, _) {
+        InputDecoration? userDecoration;
+        if (decoration != null) {
+          userDecoration = decoration!.copyWith(
+            suffixIcon: IconButton(
+              icon: Icon(suffixIcon),
+              color: _showPassword.value ? activeColor : passiveColor,
+              onPressed: () => _showPassword.value = !_showPassword.value,
+            ),
+          );
+        }
+
         return TextFormField(
           validator: validator,
           controller: controller,

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class SearchTextField extends StatelessWidget {
   SearchTextField({
     this.debounceTime = const Duration(milliseconds: 350),
@@ -30,7 +31,7 @@ class SearchTextField extends StatelessWidget {
   final InputBorder? border;
   final InputBorder? enabledBorder;
 
-  Timer? _debounceTimer;
+  late Timer? _debounceTimer;
 
   @override
   Widget build(BuildContext context) {
