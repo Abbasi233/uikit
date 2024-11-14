@@ -1,26 +1,27 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-// void successSnackbar(String content) {
-//   Get.snackbar(
-//     "İşlem Başarılı",
-//     content,
-//     backgroundColor: Colors.green[700],
-//     colorText: Colors.white,
-//     snackPosition: SnackPosition.TOP,
-//     margin: const EdgeInsets.all(3),
-//     animationDuration: const Duration(milliseconds: 300),
-//   );
-// }
+void successSnackbar(BuildContext context, String content) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(
+        content,
+        style: const TextStyle(color: Colors.white),
+      ),
+      backgroundColor: Colors.green[700],
+      margin: const EdgeInsets.all(3),
+    ),
+  );
+}
 
-// void failureSnackbar(String content, {Duration duration = const Duration(seconds: 3)}) {
-//   Get.snackbar(
-//     "İşlem Başarısız",
-//     content,
-//     backgroundColor: Colors.red[700],
-//     colorText: Colors.white,
-//     duration: duration,
-//     animationDuration: const Duration(milliseconds: 300),
-//     snackPosition: SnackPosition.TOP,
-//     margin: const EdgeInsets.all(5),
-//   );
-// }
+void failureSnackbar(BuildContext context, String content, {Duration duration = const Duration(seconds: 3)}) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(
+        content,
+        style: const TextStyle(color: Colors.white),
+      ),
+      backgroundColor: Colors.red[700],
+      margin: const EdgeInsets.all(3),
+    ),
+  );
+}
