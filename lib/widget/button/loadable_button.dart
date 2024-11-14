@@ -32,7 +32,6 @@ class LoadableButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: height,
-      width: MediaQuery.of(context).size.width,
       child: AnimatedBuilder(
         animation: _loading,
         builder: (context, _) => Material(
@@ -50,7 +49,7 @@ class LoadableButton extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   child: Center(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
