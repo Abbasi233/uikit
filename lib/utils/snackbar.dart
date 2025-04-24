@@ -7,8 +7,10 @@ void successSnackbar(BuildContext context, String content) {
         content,
         style: const TextStyle(color: Colors.white),
       ),
+      behavior: SnackBarBehavior.floating,
       backgroundColor: Colors.green[700],
-      margin: const EdgeInsets.all(3),
+      margin: const EdgeInsets.fromLTRB(3, 3, 3, 10),
+      duration: const Duration(seconds: 6),
     ),
   );
 }
@@ -20,8 +22,10 @@ void failureSnackbar(BuildContext context, String content, {Duration duration = 
         content,
         style: const TextStyle(color: Colors.white),
       ),
+      behavior: SnackBarBehavior.floating,
       backgroundColor: Colors.red[700],
-      margin: const EdgeInsets.all(3),
+      margin: const EdgeInsets.fromLTRB(3, 3, 3, 10),
+      duration: const Duration(seconds: 6),
     ),
   );
 }

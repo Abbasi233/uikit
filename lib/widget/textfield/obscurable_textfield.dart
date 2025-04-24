@@ -15,6 +15,7 @@ class ObscurableTextField extends StatelessWidget {
     this.passiveColor = Colors.grey,
     this.keyboardType = TextInputType.emailAddress,
     this.validator,
+    this.onFieldSubmitted,
     this.border,
     this.enabledBorder,
     super.key,
@@ -32,6 +33,7 @@ class ObscurableTextField extends StatelessWidget {
   final Color passiveColor;
   final TextInputType keyboardType;
   final String? Function(String?)? validator;
+  final void Function(String)? onFieldSubmitted;
   final InputBorder? border;
   final InputBorder? enabledBorder;
 
@@ -60,6 +62,7 @@ class ObscurableTextField extends StatelessWidget {
           obscuringCharacter: obscuringCharacter,
           keyboardType: keyboardType,
           style: textStyle,
+          onFieldSubmitted: onFieldSubmitted,
           decoration: userDecoration ??
               InputDecoration(
                 border: border,
