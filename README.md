@@ -12,7 +12,8 @@ and the Flutter guide for
 -->
 
 TODO: 
-  uikit:
-    git: 
-      url: https://github.com/Abbasi233/uikit
-      ref: main
+<pre> uikit: 
+      git: 
+        url: https://github.com/Abbasi233/uikit 
+        ref: main
+</pre>
